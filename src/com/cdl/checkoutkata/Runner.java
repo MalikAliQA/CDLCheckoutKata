@@ -104,14 +104,12 @@ public class Runner {
 
 		do {
 			Scanner scan = new Scanner(System.in);
-			System.out.println("SCAN ITEM: A, B, C, D OR END to Finish");
+			System.out.println("SCAN ITEM: " +itemA.getItem_name()+ ", " +itemB.getItem_name()+ ", " +itemC.getItem_name()+ ", " +itemD.getItem_name()+ " OR END to Finish");
 			String check = scan.nextLine();
-			if ("A".equals(check) || "B".equals(check) || "C".equals(check) || "D".equals(check)
-					|| "END".equals(check)) {
-				switch (check) {
-
-				case "A":
-					System.out.println("Scanning Item A");
+			
+			if (check.equals(itemA.getItem_name())) { 
+					
+				System.out.println("Scanning Item " + itemA.getItem_name());
 					if (itemA.getSpecial_price() == null) {
 						runningTotal = runningTotal + itemA.getItem_price();
 
@@ -126,10 +124,11 @@ public class Runner {
 							runningTotal = runningTotal + itemA.getItem_price();
 						}
 					}
-					break;
+					
 
-				case "B":
-					System.out.println("Scanning Item B");
+			}else if (check.equals(itemB.getItem_name())){
+				
+					System.out.println("Scanning Item " + itemB.getItem_name());
 					if (itemB.getSpecial_price() == null) {
 						runningTotal = runningTotal + itemB.getItem_price();
 
@@ -144,10 +143,11 @@ public class Runner {
 							runningTotal = runningTotal + itemB.getItem_price();
 						}
 					}
-					break;
+					
 
-				case "C":
-					System.out.println("Scanning Item C");
+			}else if (check.equals(itemC.getItem_name())) {
+				
+					System.out.println("Scanning Item " + itemC.getItem_name());
 					if (itemC.getSpecial_price() == null) {
 						runningTotal = runningTotal + itemC.getItem_price();
 
@@ -162,10 +162,11 @@ public class Runner {
 							runningTotal = runningTotal + itemC.getItem_price();
 						}
 					}
-					break;
+				
 
-				case "D":
-					System.out.println("Scanning Item D");
+			}else if (check.equals(itemD.getItem_name())) {
+				
+					System.out.println("Scanning Item " + itemD.getItem_name());
 					if (itemD.getSpecial_price() == null) {
 						runningTotal = runningTotal + itemD.getItem_price();
 
@@ -180,13 +181,13 @@ public class Runner {
 							runningTotal = runningTotal + itemD.getItem_price();
 						}
 					}
-					break;
+					
 
-				case "END":
+			} else if(check.toLowerCase().equals("end")) {
 					System.out.println("Ending Transaction");
 					isValid = false;
-					break;
-				}
+				
+			
 
 			} else {
 				System.out.println("Please enter valid option");
